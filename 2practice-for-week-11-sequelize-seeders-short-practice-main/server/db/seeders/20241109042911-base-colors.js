@@ -12,6 +12,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    await queryInterface.bulkInsert('Colors', [
+      {name: 'red'},
+      {name: 'blue'},
+      {name: 'yellow'}
+    ])
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +26,8 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('Colors', { 
+      name: ['red', 'blue', 'yellow']
+    })
   }
 };
